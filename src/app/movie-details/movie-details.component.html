@@ -1,0 +1,34 @@
+<div class="container" *ngIf="movie$ | async as movie" >
+
+    <div class="card" style="width: 100%; height: 30%;">
+
+        <img [src]="'https://image.tmdb.org/t/p/w500/'+movie.backdrop_path" style="width: 100%; height: 550px;">
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <h2>{{movie.original_title}}</h2>
+            <p>Vista general:<br>
+                {{movie.overview}}</p>
+        </div>
+
+        <div (click)="startRate()" class="col"  title="Califica este titulo">
+            <circle-progress [renderOnClick]="false" [titleColor]="colorTitle" [titleFontSize]="'30px'" [unitsColor]="colorTitle"
+                [showUnits]="false" [percent]="movie.vote_average*10" [radius]="45" [outerStrokeWidth]="8" [space]="-10"
+                [innerStrokeWidth]="5" [showSubtitle]="false" [animation]="true" [animationDuration]="300">
+            </circle-progress>
+        </div>
+
+        <div class="col" *ngIf="showRate">
+            <div class="row">
+                <input type="number" placeholder="Calificar" [(ngModel)]="value" max="10" min="0.5">
+                <button class="btn btn-primary" (click)="submitRate(movie.id, value)">Enviar</button>
+            </div>
+                
+        </div>
+
+    </div>
+
+
+</div>

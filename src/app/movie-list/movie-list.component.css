@@ -1,0 +1,12 @@
+.image{
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.bottom-right {
+    position: absolute;
+    bottom: 1px;
+    right: 2px;
+  }

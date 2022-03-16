@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-xs-7 col-sm-4 col-md-2" *ngFor="let movie of movie$">
+        <div class="card" style="margin-top: 15px;">
+            <div class="image">
+                <a [routerLink]="['/Detalles', movie.id]">
+                    <img [src]="'https://image.tmdb.org/t/p/w500/'+movie.poster_path" [alt]="movie.original_title"
+                        class="card-img-top">
+
+
+
+                </a>
+            </div>
+
+            <div class="card-inner">
+                <a class="nav-link" href="/Detalles">
+                    <p style="font-size: 14;">{{movie.original_title | slice:0:15}}</p>
+                </a>
+                <h4>{{movie.release_date | date}}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+

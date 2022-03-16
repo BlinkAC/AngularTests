@@ -1,0 +1,64 @@
+<app-main-banner></app-main-banner>
+<div class="col">
+    <div class="row" style="margin-top: 20px; margin-left: 5%;">
+        <span style="font-size: 25px; font-weight: 500; margin-left: 10px;">Peliculas populares</span>
+        <div class="col-xs-7 col-sm-4 col-md-2" *ngFor="let movie of popularMovies; let i=index">
+            <div class="card" *ngIf="i<5" style="margin-top: 15px;">
+                <div class="image">
+                    <a [routerLink]="['/Detalles', movie.id]">
+                        <img [src]="'https://image.tmdb.org/t/p/w500/'+movie.poster_path" [alt]="movie.original_title"
+                            class="card-img-top">
+                    </a>
+                    <circle-progress class="bottom-right" [titleColor]="colorTitle" [titleFontSize]="'20px'" [unitsColor]="colorSubtitle" 
+                    [showUnits]="false" [percent]="movie.vote_average*10" [radius]="15" [outerStrokeWidth]="8"
+                            [space]="-10" [innerStrokeWidth]="5" [showSubtitle]="false" 
+                            [animation]="true" [animationDuration]="300"></circle-progress>
+                </div>
+    
+                <div class="card-inner">
+                    <a class="nav-link" href="/Detalles">
+                        <p style="font-size: 14;">{{movie.original_title | slice:0:15}}</p>
+                    </a>
+                    <h4>{{movie.release_date | date}}</h4>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <div class="row" style="margin-top: 20px; margin-left: 5%;">
+        <span style="font-size: 25px; font-weight: 500; margin-left: 10px;">Peliculas en cines</span>
+        <div class="col-xs-7 col-sm-4 col-md-2" *ngFor="let movie of nowMovies; let i=index">
+            <div class="card" *ngIf="i<5">
+                <div class="image">
+                    <a [routerLink]="['/Detalles', movie.id]">
+                        <img [src]="'https://image.tmdb.org/t/p/w500/'+movie.poster_path" [alt]="movie.original_title"
+                            class="card-img-top">
+                    </a>
+                    <circle-progress class="bottom-right" [titleColor]="colorTitle" [titleFontSize]="'20px'" [unitsColor]="colorSubtitle" 
+                    [showUnits]="false" [percent]="movie.vote_average*10" [radius]="15" [outerStrokeWidth]="8"
+                            [space]="-10" [innerStrokeWidth]="5" [showSubtitle]="false" 
+                            [animation]="true" [animationDuration]="300"></circle-progress>
+                </div>
+    
+                <div class="card-inner">
+                    <a class="nav-link" href="/Detalles">
+                        <p style="font-size: 14;">{{movie.original_title | slice:0:15}}</p>
+                    </a>
+                    <h4>{{movie.release_date | date}}</h4>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+
+<button class="btn btn-dark" (click)="bobo()" routerLink="/">
+    Volver arriba
+</button>
+
+
